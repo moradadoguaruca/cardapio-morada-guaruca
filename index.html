@@ -203,11 +203,19 @@
 /* ============ Helpers de dados ============ */
 // Por enquanto o campo "es" repete o texto em "pt" tal como pedido.
 // Para traduzir depois: edite apenas o objeto "es" de cada item/categoria.
-function I(name, desc, price){
-  return { price: price, pt:{ name:name, desc: desc||'' }, es:{ name:name, desc: desc||'' } };
+// name/desc/price: texto original en portugués (obligatorio).
+// nameEs/descEs: texto en español (OPCIONAL). Si no los escribís,
+// el español muestra automáticamente el mismo texto en portugués.
+function I(name, desc, price, nameEs, descEs){
+  return {
+    price: price,
+    pt:{ name:name, desc: desc||'' },
+    es:{ name: (nameEs!==undefined ? nameEs : name), desc: (descEs!==undefined ? descEs : (desc||'')) }
+  };
 }
-function C(id, title, items){
-  return { id:id, title:{ pt:title, es:title }, items:items };
+// title/titleEs: igual que arriba, titleEs es opcional.
+function C(id, title, items, titleEs){
+  return { id:id, title:{ pt:title, es:(titleEs!==undefined ? titleEs : title) }, items:items };
 }
 
 const UI = {
