@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Picolés · Morada do Guaruçá</title>
+  <meta name="description" content="Picolés · Morada do Guaruçá · Praia de Mariscal, Bombinhas">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/picoles.css">
+</head>
+<body class="pico-page">
+
+  <!-- BARRA SUPERIOR FIXA — botão de voltar sempre à vista -->
+  <div class="pico-top">
+    <div class="pico-top__inner">
+      <a class="pico-back" href="index.html" data-pico-back>
+        <span class="pico-back__arrow" aria-hidden="true">&larr;</span>
+        <span data-pico="back">Voltar ao cardápio</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO (mesmo verde-oliva escuro do cardápio, com confeti e picolés) -->
+  <header class="pico-hero">
+    <div class="pico-hero__content">
+      <div class="pico-logo"><img id="siteLogo" src="" alt=""></div>
+      <div class="pico-hero__deco" aria-hidden="true">
+        <span class="pico-icon"></span><span class="pico-icon"></span><span class="pico-icon"></span>
+      </div>
+      <h1 class="pico-title" data-pico="title">Picolés</h1>
+      <p class="pico-sub" data-pico="sub">Pra fechar o dia com um sorriso</p>
+    </div>
+    <svg class="pico-scallop" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30V22a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0a20 16 0 0 1 40 0V30Z"/></svg>
+  </header>
+
+  <!-- LISTA ÚNICA (sem categorias) -->
+  <main class="pico-main">
+    <ul class="pico-list" id="picoList"></ul>
+  </main>
+
+  <!-- RODAPÉ (sem franja de taxa: os valores já incluem o serviço) -->
+  <footer class="pico-foot">
+    <p class="pico-note" data-pico="note">Valores finais, já com serviço incluso.</p>
+    <a class="pico-back" href="index.html" data-pico-back>
+        <span class="pico-back__arrow" aria-hidden="true">&larr;</span>
+        <span data-pico="back">Voltar ao cardápio</span>
+      </a>
+    <p class="pico-foot__name" data-config="hotelName"></p>
+    <p class="pico-foot__loc" data-config="location"></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/picoles-data.js"></script>
+  <script src="js/picoles.js"></script>
+</body>
+</html>
