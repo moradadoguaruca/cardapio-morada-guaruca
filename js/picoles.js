@@ -52,7 +52,21 @@
   var list = document.getElementById("picoList");
   picolesData.forEach(function (p) {
     var li = el("li", "pico-item" + (p.falta ? " is-out" : ""));
-    li.appendChild(el("span", "pico-icon"));
+    // Foto real (se o item tiver "imagem") ou o picolé desenhado provisório
+    var slot;
+    if (p.imagem) {
+      slot = el("span", "pico-thumb");
+      var img = document.createElement("img");
+      img.src = p.imagem;
+      img.alt = "";
+      img.loading = "lazy";
+      // se o arquivo não existir ainda, volta ao ícone provisório
+      img.onerror = function () { slot.className = "pico-icon"; slot.innerHTML = ""; };
+      slot.appendChild(img);
+    } else {
+      slot = el("span", "pico-icon");
+    }
+    li.appendChild(slot);
 
     var body = el("div", "pico-body");
     body.appendChild(el("h3", "pico-name", p.nome));

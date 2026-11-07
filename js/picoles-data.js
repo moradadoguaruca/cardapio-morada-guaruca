@@ -8,14 +8,16 @@
                  (para voltar ao normal, apague  falta: true)
    • Descrição:  acrescente  descricao: { pt: "...", es: "..." }
                  (se não existir, nada aparece na tela)
+   • Foto:       acrescente  imagem: "images/picoles/arquivo.jpg"
+                 (sem foto, aparece o picolé desenhado provisório)
    • Preço:      valor final, já com a taxa de serviço.
    ========================================================== */
 
 const picolesData = [
-  { nome: "Mega Clássico", preco: 30 },
-  { nome: "Mega Amêndoas", preco: 30 },
-  { nome: "Mega Pistache", preco: 30 },
-  { nome: "Mega Trufa Branca", preco: 30 },
+  { nome: "Mega Clássico", preco: 30, imagem: "images/picoles/mega-classico.jpg" },
+  { nome: "Mega Amêndoas", preco: 30, imagem: "images/picoles/mega-amendoas.jpg" },
+  { nome: "Mega Pistache", preco: 30, imagem: "images/picoles/mega-pistache.jpg" },
+  { nome: "Mega Trufa Branca", preco: 30, imagem: "images/picoles/mega-trufa-branca.jpg" },
   { nome: "Kit Kat", preco: 30 },
   { nome: "Kit Kat Gold", preco: 20 },
   { nome: "Oreo Picolé", preco: 29 },
@@ -49,14 +51,12 @@ const picolesText = {
     title: "Picolés",
     sub: "Pra fechar o dia com um sorriso",
     back: "Voltar ao cardápio",
-    out: "Em falta",
-    note: "Valores finais, já com serviço incluso."
+    out: "Em falta"
   },
   es: {
     title: "Picolés",
     sub: "Para cerrar el día con una sonrisa",
     back: "Volver al cardápio",
-    out: "Agotado",
-    note: "Valores finales, servicio ya incluido."
+    out: "Agotado"
   }
 };
