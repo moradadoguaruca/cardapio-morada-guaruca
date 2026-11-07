@@ -73,27 +73,12 @@
   position: relative;
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 24px var(--gutter) 70px;
+  padding: 26px var(--gutter) 64px;
 }
 
 .pico-logo { max-width: 110px; margin: 0 auto 8px; }
 .pico-logo img { width: 100%; height: auto; filter: brightness(0) invert(1); opacity: 0.96; }
 
-.pico-hero__deco {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 22px;
-  height: 80px;
-  margin-bottom: 10px;
-}
-.pico-hero__deco .pico-icon {
-  transform-origin: bottom center;
-  animation: pico-bob 3.2s ease-in-out infinite;
-}
-.pico-hero__deco .pico-icon:nth-child(1) { --c: var(--pico-pink); }
-.pico-hero__deco .pico-icon:nth-child(2) { --c: var(--pico-mint); animation-delay: -1s; }
-.pico-hero__deco .pico-icon:nth-child(3) { --c: var(--pico-sun);  animation-delay: -2s; }
 
 .pico-title {
   margin: 0;
@@ -114,15 +99,16 @@
   color: var(--hero-text-soft);
 }
 
-/* borda de nuvenzinhas que liga o hero ao fundo claro */
-.pico-scallop {
+/* ondas contínuas que ligam o hero ao fundo claro (duas camadas, formas irregulares) */
+.pico-wave {
   position: absolute;
   left: 0; right: 0; bottom: -1px;
   width: 100%;
-  height: 30px;
+  height: clamp(38px, 9vw, 60px);
   display: block;
-  fill: var(--bg);
 }
+.pico-wave__back  { fill: var(--pico-pink); opacity: 0.9; }
+.pico-wave__front { fill: var(--bg); }
 
 /* ---------- Lista ---------- */
 .pico-main {
@@ -141,9 +127,9 @@
 
 .pico-item {
   display: grid;
-  grid-template-columns: 38px 1fr auto;
+  grid-template-columns: 64px 1fr auto;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   padding: 12px 16px;
   background: var(--paper);
   border: 1px solid rgba(185, 138, 46, 0.28); /* igual ao .menu-item */
@@ -210,11 +196,17 @@
 .pico-item:nth-child(6n+5) .pico-icon { --c: var(--pico-orange); }
 .pico-item:nth-child(6n)   .pico-icon { --c: var(--pico-lilac); }
 
+/* ---------- Foto real do picolé ---------- */
+.pico-thumb { display: block; width: 64px; height: 64px; }
+.pico-thumb img { width: 100%; height: 100%; object-fit: contain; }
+
 /* ---------- EM FALTA: risco de giz de cera bordô (continua legível) ---------- */
 .pico-item.is-out .pico-icon,
+.pico-item.is-out .pico-thumb,
 .pico-item.is-out .pico-price,
 .pico-item.is-out .pico-desc { opacity: 0.5; }
-.pico-item.is-out .pico-icon { filter: grayscale(0.6); }
+.pico-item.is-out .pico-icon,
+.pico-item.is-out .pico-thumb { filter: grayscale(0.6); }
 
 /* o risco vai no próprio texto: acompanha o nome mesmo quando quebra em 2 linhas */
 .pico-item.is-out .pico-name {
@@ -242,12 +234,5 @@
   border-top: 1px solid var(--line);
   padding: 26px var(--gutter) calc(40px + env(safe-area-inset-bottom, 0px));
 }
-.pico-note { margin: 0 0 16px; font-size: 13px; color: var(--ink-soft); }
 .pico-foot__name { margin: 22px 0 4px; font-family: var(--font-display); font-size: 18px; color: var(--ink); }
 .pico-foot__loc { margin: 0; font-size: 13px; color: var(--ink-soft); }
-
-/* ---------- Movimento ---------- */
-@keyframes pico-bob {
-  0%, 100% { transform: scale(1.5) translateY(0) rotate(-3deg); }
-  50%      { transform: scale(1.5) translateY(-8px) rotate(3deg); }
-}
